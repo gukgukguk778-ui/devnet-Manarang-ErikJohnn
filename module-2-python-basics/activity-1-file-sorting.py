@@ -1,23 +1,21 @@
 """
 Module 2 — Activity: File Sorting with os and shutil
-Student: [your name]
-Date: [date]
+Student: Erik John D. Manarang
+Date: 9/25/26
 
 ============================================
 WHAT DID YOU BUILD? (explain in your own words)
 ============================================
-[Paste your working script below first, then come back and explain
-it here: what does your script do, and what rule did you use to
-sort the files? e.g. by extension, by name, by date, etc.]
+I made a Python script that automatically makes a compressed zip backup of my project directory. The script makes a file name that has todays exact date and time so that older backups are never overwritten. Then the script puts the zip archive into a Backups" folder automatically.
 
 
 ============================================
 KEY VOCABULARY
 ============================================
-- os module:
-- shutil module:
-- file path:
-- directory:
+- os module: A built in Python tool used to interact with computer folders and files.
+- shutil module: to use this when i need move/copy my files.
+- file path: this tells python where a file is located.
+- directory: this is essentially a folder where files are stored.
 (add more as needed)
 
 
@@ -30,16 +28,24 @@ Paste the code you already wrote for this activity below.
 import os
 import shutil
 
-# --- paste your existing code here ---
+
+main_folder = "School_Work"
+subjects = ["Math", "Science", "English", "History", "Art"]
+
+for subject in subjects:
+    folder_path = os.path.join(main_folder, subject)
+    os.makedirs(folder_path, exist_ok=True)
+    print(f"Created folder for: {subject}")
+
+print("All subject folders created successfully!")
+
 
 
 """
 ============================================
 A MISTAKE I MADE (or one I want to avoid)
 ============================================
-[what tripped you up while building this? e.g. a path that didn't
-exist, a file that got overwritten, something that didn't work the
-way you expected at first]
+One mistake I want to avoid is forgetting to add 'exist_ok=True', inside 'os.makedirs()'. If I don’t include it and I run the program again and the folders are already there Python will crash with an error. Adding 'exist_ok=True' tells Python to not try to create the folder if it already exists. It just skips that step so the program keeps running without issues. This small detail helps avoid errors and makes the code more reliable.
 
 
 ============================================
