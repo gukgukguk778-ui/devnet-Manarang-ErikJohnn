@@ -17,8 +17,8 @@ def display_menu():
  
  
 def add_movie(movie_list):
-    added_movie = input("Enter Movie Title: ")
-    added_director = input("Enter Director: ")
+    added_movie = input("Enter Movie Title:")
+    added_director = input("Enter Director:")
     movie_status = input("Status (Watched/Unwatched): ").strip().capitalize()
  
     movie = f"{added_movie} | Director: {added_director} | Status: {movie_status}"
@@ -36,17 +36,28 @@ def view_movies(movie_list):
  
  
 def count_watched_unwatched(movie_list):
-   
+    watched = sum("status:watched" in movie.lower() for movie in movie_list)
+    unwatched = sum("status:unwatched" in movie.lower() for movie in movie_list)
+    print(f"Watched: {watched}")
+    print(f"Unwatched: {unwatched}")
+    return watched, unwatched
  
  
 def find_movie(movie_list):
-   
+    movie_title = input("Enter movie title:").strip().lower()
  
-    print("Movie not found.")
+    for movie in movie_list:
+        title = movie.split(" | ", 1)[0].lower()
+        if title == movie_title:
+            print(movie)
+            return movie
+ 
+    print("Movie not found!.")
     return
  
 def main():
     
+ 
  
 main()
  
