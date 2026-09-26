@@ -2,61 +2,51 @@
 Midterm Practical Exam — Movie Collection Manager
 Student: Erik John D. Manarang
 """
-
+ 
 movies = []
-
-
+ 
+ 
 def display_menu():
-    print (f"Add a movie")
-    print (f"View all Movies")
-    print (f"count watched vs unwatched")
-    print (f"find a movie")
-    print (f"Exit")
-     menu = print(input"choose an option:")
-    pass
-
-
+    print(" Movie Collection Manager ")
+    print("1. Add a Movie")
+    print("2. View all movies")
+    print("3. Count watched vs unwatched")
+    print("4. Find a movie")
+    print("5. Exit")
+    return input("Choose an option: ")
+ 
+ 
 def add_movie(movie_list):
-   print("Enter movie title:")
-    movie_title = input()
-   print(f"movie added successfully.")
-    pass
-
-
+    added_movie = input("Enter Movie Title: ")
+    added_director = input("Enter Director: ")
+    movie_status = input("Status (Watched/Unwatched): ").strip().capitalize()
+ 
+    movie = f"{added_movie} | Director: {added_director} | Status: {movie_status}"
+    movie_list.append(movie)
+    print("Movie added successfully.")
+ 
+ 
 def view_movies(movie_list):
-    view_movies = ["inception - Pecson bryan - watch", "Interstellar - pecson bryan - Unwatched", "The Matrix - Cruz Andrei - Watched"  ]
-    for x in view_movies:
-      print(x)
-    pass
-
-
+    if not movie_list:
+        print("No movies in the collection")
+        return
+ 
+    for number, movie in enumerate(movie_list, start=1):
+        print(f"{number}. {movie}")
+ 
+ 
 def count_watched_unwatched(movie_list):
-    watch = 1
-    unwatched = 0
-
-    if watch > unwatched:
-        print("Nothing Watch")
-    elif watch == unwatched:
-        print ("watched")    
-    pass
-
-
+   
+ 
+ 
 def find_movie(movie_list):
-    # ask for a movie title
-    # search the list
-    # search should be case-insensitive
-    # print the result or "Movie not found."
-    pass
-
-
+   
+ 
+    print("Movie not found.")
+    return
+ 
 def main():
-    print (f"Add a movie")
-    print (f"View all Movies")
-    print (f"count watched vs unwatched")
-    print (f"find a movie")
-    print (f"Exit")
-    menu = print(input"choose an option:")
-    pass
-
-
+    
+ 
 main()
+ 
