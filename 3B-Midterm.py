@@ -27,6 +27,9 @@ def add_movie(movie_list):
 
 
 def view_movies(movie_list):
+    view_movies = ["inception - Pecson bryan - watch", "Interstellar - pecson bryan - Unwatched", "The Matrix - Cruz Andrei - Watched"  ]
+    for x in view_movies:
+      print(x)
     pass
 
 
