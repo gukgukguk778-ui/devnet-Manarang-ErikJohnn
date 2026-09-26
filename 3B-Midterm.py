@@ -36,18 +36,14 @@ def view_movies(movie_list):
  
  
 def count_watched_unwatched(movie_list):
-    watched = sum("status:watched" in movie.lower() for movie in movie_list)
-    unwatched = sum("status:unwatched" in movie.lower() for movie in movie_list)
-    print(f"Watched: {watched}")
-    print(f"Unwatched: {unwatched}")
-    return watched, unwatched
+   
  
  
 def find_movie(movie_list):
     movie_title = input("Enter movie title:").strip().lower()
  
     for movie in movie_list:
-        title = movie.split(" | ", 1)[0].lower()
+        title = movie.split("|",1)[0].lower()
         if title == movie_title:
             print(movie)
             return movie
@@ -56,7 +52,22 @@ def find_movie(movie_list):
     return
  
 def main():
-    
+    while True:
+        choice = display_menu()
+ 
+        if choice == "1":
+            add_movie(movies)
+        elif choice == "2":
+            view_movies(movies)
+        elif choice == "3":
+            count_watched_unwatched(movies)
+        elif choice == "4":
+            find_movie(movies)
+        elif choice == "5":
+            print("BYE!")
+            break
+        else:
+            print("Invalid Option, Please be minded!")
  
  
 main()
